@@ -30,9 +30,12 @@ accelerator:
       dataType: number
       display: true
       choices:
-      - foo: foo baz
-      - bar: bar man
-      - baz: baz man
+      - value: foo
+        text: foo baz
+      - value: bar
+        text: bar man
+      - value: baz
+        text: baz man
 
 engine:
   sources:
