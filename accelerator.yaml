@@ -1,0 +1,52 @@
+accelerator:
+  displayName: New Accelerator
+  description: Generate yaml for a new Accelerator resource.
+  iconUrl: https://raw.githubusercontent.com/simple-starters/icons/master/icon-tanzu-light.png
+  tags:
+    - Tanzu
+    - Accelerator
+  options:
+    - name: acceleratorName
+      label: Name for Accelerator Resource
+      description: Kubernetes resource name - see https://kubernetes.io/docs/concepts/overview/working-with-objects/names/
+      required: true
+      dataType: string
+      inputType: text
+    - name: gitUrl
+      label: Git Repository URL
+      description: GitHub or GitLab repository url
+      dataType: string
+      inputType: text
+      required: true
+    - name: gitBranch
+      label: Git Branch
+      description: git branch name
+      dataType: string
+      inputType: text
+      required: true
+      defaultValue: main
+    - name: choices broken
+      inputType: checkbox
+      dataType: number
+      display: true
+      choices:
+      - foo: foo food
+      - bar: bar food
+      - baz: baz man
+
+engine:
+  sources:
+    - includes: ["kubernetes/acc.yaml"]
+      transformations:
+      - type: ReplaceText
+        substitutions:
+        - text: acc-name
+          with: "#acceleratorName"
+        - text: acc-git-url
+          with: "#gitUrl"
+        - text: acc-git-branch
+          with: "#gitBranch"
+      - type: RewritePath
+        rewriteTo: "'kubernetes/' + #acceleratorName + '.yaml'"
+    - includes: ["**"]
+      excludes: ["kubernetes/acc.yaml"]
