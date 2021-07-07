@@ -27,8 +27,13 @@ accelerator:
       defaultValue: main
     - name: choices broken
       inputType: checkbox
-      dataType: number
+      dataType: 
+      - string
+      - string
       display: true
+      defaultValue:
+      - foo
+      - bar
       choices:
       - value: foo
         text: foo baz
