@@ -5,34 +5,6 @@ accelerator:
   tags:
     - Tanzu
     - Accelerator
-  options:
-    - name: acceleratorName
-      label: Name for Accelerator Resource
-      description: Kubernetes resource name - see https://kubernetes.io/docs/concepts/overview/working-with-objects/names/
-      required: true
-      dataType: string
-      inputType: text
-    - name: gitUrl
-      label: Git Repository URL
-      description: GitHub or GitLab repository url
-      dataType: string
-      inputType: text
-      required: true
-    - name: gitBranch
-      label: Git Branch
-      description: git branch name
-      dataType: string
-      inputType: text
-      required: true
-      defaultValue: main
-    - name: choices broken
-      inputType: checkbox
-      dataType: number
-      display: true
-      choices:
-      - foo: foo baz
-      - bar: bar man
-      - baz: baz man
 
 engine:
   sources:
